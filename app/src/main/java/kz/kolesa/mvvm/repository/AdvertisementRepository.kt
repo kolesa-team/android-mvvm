@@ -1,5 +1,6 @@
 package kz.kolesa.mvvm.repository
 
+import android.support.annotation.WorkerThread
 import kz.kolesa.mvvm.domain.Advertisement
 
 /**
@@ -7,5 +8,6 @@ import kz.kolesa.mvvm.domain.Advertisement
  */
 interface AdvertisementRepository {
 
-    fun getAdvertisements(): List<Advertisement>
+    @WorkerThread
+    suspend fun getAdvertisements(): List<Advertisement>
 }
