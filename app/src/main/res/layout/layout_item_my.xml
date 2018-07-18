@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/image"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Tesla Model X" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintRight_toLeftOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="#c62828" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/image"
+        app:layout_constraintLeft_toRightOf="@+id/image"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="100,000,000 тг" />
+
+</android.support.constraint.ConstraintLayout>

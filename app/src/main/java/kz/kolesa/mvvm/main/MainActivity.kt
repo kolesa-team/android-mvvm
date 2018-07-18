@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kz.kolesa.mvvm.R
+import kz.kolesa.mvvm.advertisements.AdvertisementListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         if (savedInstanceState == null) {
-            setFragment(MyFragment())
+            setFragment(AdvertisementListFragment())
         }
     }
 

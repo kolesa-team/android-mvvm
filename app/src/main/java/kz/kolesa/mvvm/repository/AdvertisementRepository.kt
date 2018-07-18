@@ -1,4 +1,6 @@
-package kz.kolesa.mvvm.domain
+package kz.kolesa.mvvm.repository
+
+import kz.kolesa.mvvm.domain.Advertisement
 
 /**
  *
