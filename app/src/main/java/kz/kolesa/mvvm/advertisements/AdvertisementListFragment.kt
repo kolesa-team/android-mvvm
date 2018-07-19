@@ -13,7 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import kz.kolesa.mvvm.R
 import kz.kolesa.mvvm.advertisements.adapter.AdvertisementAdapter
-import kz.kolesa.mvvm.architecutre.MyViewModelFactory
+import kz.kolesa.mvvm.architecutre.TempAdvertisementViewModelFactory
 import kz.kolesa.mvvm.data.DefaultAdvertisementRepository
 
 private val TAG = AdvertisementListFragment::class.java.simpleName
@@ -48,7 +48,7 @@ class AdvertisementListFragment : Fragment() {
     }
 
     private fun createViewModel(): AdvertisementViewModel {
-        val myViewModelFactory = MyViewModelFactory(
+        val myViewModelFactory = TempAdvertisementViewModelFactory(
                 advertisementRepository = DefaultAdvertisementRepository(),
                 onAdvertisementClicked = {
                     Log.d(TAG, "$it has been clicked")

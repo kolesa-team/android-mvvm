@@ -6,7 +6,7 @@ import kz.kolesa.mvvm.advertisements.AdvertisementViewModel
 import kz.kolesa.mvvm.domain.Advertisement
 import kz.kolesa.mvvm.repository.AdvertisementRepository
 
-class MyViewModelFactory(
+class TempAdvertisementViewModelFactory(
         private val advertisementRepository: AdvertisementRepository,
         private var onAdvertisementClicked: ((Advertisement) -> Unit)?
 ) : ViewModelProvider.Factory {
