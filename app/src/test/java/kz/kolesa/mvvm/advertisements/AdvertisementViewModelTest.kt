@@ -12,13 +12,10 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
 
 /**
  * @author marshal@kolesa.kz
  */
-@RunWith(MockitoJUnitRunner::class)
 class AdvertisementViewModelTest {
 
     /**
