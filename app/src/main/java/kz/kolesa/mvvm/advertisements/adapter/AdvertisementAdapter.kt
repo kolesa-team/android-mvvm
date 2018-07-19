@@ -11,18 +11,18 @@ import kz.kolesa.mvvm.domain.Advertisement
  */
 class AdvertisementAdapter(
         private val callback: ((Advertisement) -> Unit)?
-) : ListAdapter<Advertisement, AdvertismentViewHolder>(
+) : ListAdapter<Advertisement, AdvertisementViewHolder>(
         AdvertisementDiffUtil
 ) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvertismentViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvertisementViewHolder {
         return LayoutInflater
                 .from(parent.context)
-                .inflate(R.layout.layout_item_my, parent, false)
-                .let { view -> AdvertismentViewHolder(view) }
+                .inflate(R.layout.layout_item_advertisement, parent, false)
+                .let { view -> AdvertisementViewHolder(view) }
     }
 
-    override fun onBindViewHolder(holder: AdvertismentViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AdvertisementViewHolder, position: Int) {
         val advertisement = getItem(position)
         holder.apply {
             itemView.setOnClickListener { callback?.invoke(advertisement) }

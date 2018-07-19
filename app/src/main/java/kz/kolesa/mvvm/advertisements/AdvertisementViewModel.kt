@@ -6,7 +6,7 @@ import android.arch.lifecycle.ViewModel
 import kotlinx.coroutines.experimental.async
 import kotlinx.coroutines.experimental.launch
 import kz.kolesa.mvvm.architecutre.CoroutineContextProvider
-import kz.kolesa.mvvm.architecutre.Event
+import kz.kolesa.mvvm.livedata.Event
 import kz.kolesa.mvvm.domain.Advertisement
 import kz.kolesa.mvvm.repository.AdvertisementRepository
 
@@ -22,21 +22,26 @@ class AdvertisementViewModel(
 
     fun getAdvertisementLiveData(): LiveData<List<Advertisement>> = advertisementsLiveData
 
-    /*fun getProgressLiveData(): LiveData<Boolean> = progressLiveData*/
+    fun getProgressLiveData(): LiveData<Boolean> = progressLiveData
 
     fun onStart() {
-        /*
-        launch(coroutineContextProvider.Main) {
-            progressLiveData.value = true
-            val advertisements = async(coroutineContextProvider.IO) {
-                advertisementRepository.getAdvertisements()
-            }.await()
-            advertisementsLiveData.value = advertisements
-            progressLiveData.value = false
-        }*/
+        advertisementsLiveData.value?.let {
+            if (it.isEmpty()) {
+                loadAdvertisements()
+            }
+        } ?: loadAdvertisements()
     }
 
     fun onAdvertClicked(advertisement: Advertisement) {
         onAdvertisementClicked?.invoke(advertisement)
+    }
+
+    private fun loadAdvertisements() = launch(coroutineContextProvider.main) {
+        progressLiveData.value = true
+        val advertisements = async(coroutineContextProvider.io) {
+            advertisementRepository.getAdvertisements()
+        }.await()
+        advertisementsLiveData.value = advertisements
+        progressLiveData.value = false
     }
 }

@@ -4,13 +4,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import kz.kolesa.mvvm.R
 import kz.kolesa.mvvm.domain.Advertisement
 
 /**
  * @author marshal@kolesa.kz
  */
-class AdvertismentViewHolder(
+class AdvertisementViewHolder(
         itemView: View
 ) : RecyclerView.ViewHolder(itemView) {
 
@@ -21,5 +22,8 @@ class AdvertismentViewHolder(
     fun bindTo(advertisement: Advertisement) {
         titleView.text = advertisement.title
         priceView.text = advertisement.price
+        Glide.with(imageView.context)
+                .load(advertisement.photoPath)
+                .into(imageView)
     }
 }

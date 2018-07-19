@@ -8,9 +8,6 @@ import kotlin.coroutines.experimental.CoroutineContext
  * @author marshal@kolesa.kz
  */
 class TestCoroutineContextProvider : CoroutineContextProvider() {
-    override val Main: CoroutineContext
-        get() = Unconfined
-
-    override val IO: CoroutineContext
-        get() = Unconfined
+    override val main: CoroutineContext by lazy { Unconfined }
+    override val io: CoroutineContext by lazy { Unconfined }
 }
