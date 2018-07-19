@@ -32,9 +32,22 @@ class AdvertisementListFragment : Fragment() {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         mAdvertisementViewModel = createViewModel()
+        /*
+        mAdvertisementViewModel.onStart()
+        mAdvertisementViewModel.getAdvertisementLiveData().observe(this, Observer { advertisements->
+            advertisementAdapter.submitList(advertisements)
+        })
+        */
     }
 
     private fun createViewModel(): AdvertisementViewModel {
-        TODO()
+        /*
+        val myViewModelFactory = MyViewModelFactory()
+        val advertisementViewModel = ViewModelProviders.of(
+                this, myViewModelFactory
+        ).get(AdvertisementViewModel::class.java)
+
+        return advertisementViewModel
+        */
     }
 }
